@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [joke, setJoke] = useState("");
   const [go, setGo] = useState("");
+    const [ruby, setRuby] = useState("");
 
   const getJoke = () => {
       console.log("Hello World");
@@ -25,14 +26,25 @@ function App() {
             });
     };
 
+    const getRuby = () => {
+        fetch("http://localhost:8091/")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Got ruby!');
+                setRuby(data.msg);
+            });
+    };
+
   return (
     <div className="App">
       <header className="App-header">
         React Hello
         <button onClick={getJoke}>Get Joke</button>
         {joke}
-        <button onClick={getGo}>Call Go Hello</button>
+        <button onClick={getGo}>Call Go Hello1</button>
         {go}
+          <button onClick={getRuby}>Call Ruby Hello</button>
+          {ruby}
       </header>
     </div>
   );
