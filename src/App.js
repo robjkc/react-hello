@@ -4,14 +4,26 @@ import './App.css';
 
 function App() {
   const [joke, setJoke] = useState("");
+  const [go, setGo] = useState("");
 
   const getJoke = () => {
-    fetch("https://official-joke-api.appspot.com/random_joke")
+      console.log("Hello World");
+
+      fetch("https://official-joke-api.appspot.com/random_joke")
         .then((response) => response.json())
         .then((data) => {
           setJoke(data.setup + " ... " + data.punchline);
         });
   };
+
+    const getGo = () => {
+        fetch("http://localhost:8089/go")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Got data!');
+                setGo(data.msg);
+            });
+    };
 
   return (
     <div className="App">
@@ -19,6 +31,8 @@ function App() {
         React Hello
         <button onClick={getJoke}>Get Joke</button>
         {joke}
+        <button onClick={getGo}>Call Go Hello</button>
+        {go}
       </header>
     </div>
   );
