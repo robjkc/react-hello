@@ -1,6 +1,6 @@
 # Setup
-default_registry('docker.io/robjkc')
-allow_k8s_contexts(k8s_context())
+#default_registry('docker.io/robjkc')
+#allow_k8s_contexts(k8s_context())
 
 #repo = local_git_repo('.')
 
