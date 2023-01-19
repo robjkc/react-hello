@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-hello
+  labels:
+    app: react-hello
+spec:
+  selector:
+    matchLabels:
+      app: react-hello
+  template:
+    metadata:
+      labels:
+        app: react-hello
+    spec:
+      containers:
+        - name: react-hello
+          image: react-hello-image
+          ports:
+            - containerPort: 80
