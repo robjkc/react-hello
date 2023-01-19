@@ -17,4 +17,4 @@ spec:
         - name: react-hello
           image: react-hello-image
           ports:
-            - containerPort: 80
+            - containerPort: 3000
