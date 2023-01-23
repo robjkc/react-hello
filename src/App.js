@@ -5,7 +5,8 @@ import './App.css';
 function App() {
   const [joke, setJoke] = useState("");
   const [go, setGo] = useState("");
-    const [ruby, setRuby] = useState("");
+  const [ruby, setRuby] = useState("");
+  const [controlSystem, setControlSystem] = useState("");
 
   const getJoke = () => {
       console.log("Hello World");
@@ -35,16 +36,27 @@ function App() {
             });
     };
 
+    const getControlSystem = () => {
+        fetch("http://localhost:8089/control-system")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Got control system!');
+                setControlSystem(data.control_system.name);
+            });
+    };
+
   return (
     <div className="App">
       <header className="App-header">
-        React Hello
+        React Hello1
         <button onClick={getJoke}>Get Joke</button>
         {joke}
-        <button onClick={getGo}>Call Go Hello1</button>
+        <button onClick={getGo}>Call Go Hello</button>
         {go}
           <button onClick={getRuby}>Call Ruby Hello</button>
           {ruby}
+          <button onClick={getControlSystem}>Get Control System</button>
+          {controlSystem}
       </header>
     </div>
   );
